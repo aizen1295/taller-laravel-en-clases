@@ -7,12 +7,12 @@
         <img class="avatar" src="{{ asset('img/logo.jpeg') }}" alt="logo de la fet">
         <h1>inicio sección</h1>
         <form action="">
-            <!-- USERNAME -->
+            <!-- USUARIO -->
             <div class="form-group">
                 <label for=username>usuario</label>
                 <input id=username class="form-control" type="text" name="" placeholder="ingresar usuario">
             </div>
-            <!-- PASSWORD -->
+            <!-- CONTRASEÑA -->
             <div class="form-group">
                 <label for=password>constraseña</label>
                 <input id=password class="form-control" type="password" name="" placeholder="ingrasar contraseña">

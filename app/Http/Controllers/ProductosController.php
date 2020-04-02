@@ -27,12 +27,8 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        producto:: create([
-            'nombre'=>'pc',
-            'valor'=>'500000',
-            'codigo'=>'0004',
-            'imagen'=>'pc1'
-        ]);
+             
+        return view('productos.crear');
     }
 
     /**
@@ -43,7 +39,12 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        producto:: create([
+            'nombre'=>'nombre',
+            'valor'=>'valor',
+            'codigo'=>'codigo',
+            'imagen'=>'imagen'
+        ]);
     }
 
     /**

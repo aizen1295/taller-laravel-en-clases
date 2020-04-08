@@ -22,7 +22,7 @@
                 <td>{{$producto->nombre}}</td>
                 <td>{{$producto->valor}}</td>
                 <td>{{$producto->codigo}}</td>
-                <td><img src=" img/{{ $producto->imagen }}" alt="" width = "100" ></td>
+                <td><img src=" img/{{ $producto->imagen }}" alt="" width="100"></td>
                 <td>
                     <a href="" class="btn btn-danger">eliminar</a>
                     <a href="" class="btn btn-info">modificar</a>

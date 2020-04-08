@@ -21,10 +21,12 @@
             <button class="btn btn-success btn-lg btn-block" type="submit">inicio</button>
 
             <p></p>
-            <a href="#"><h6>Olvido su contraseña ?</h6></a>
-           
+            <a href="#">
+                <h6>Olvido su contraseña ?</h6>
+            </a>
+
         </form>
     </div>
-    
+
 </body>
 @endsection

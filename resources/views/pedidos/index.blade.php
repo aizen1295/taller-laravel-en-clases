@@ -9,10 +9,11 @@
                 <th>id</th>
                 <th>producto</th>
                 <th>valor</th>
-                <th>valor total</th>
+                <th>usuario</th>
                 <th>cantidad</th>
                 <th>imagen</th>
-                <th>acciones</th>
+                <th>valor total</th>
+                <th class="text-center">acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -21,10 +22,11 @@
                 <td scope="row">{{$pedido->id}}</td>
                 <td>{{$pedido->productos->nombre}}</td>
                 <td>{{$pedido->productos->valor}}</td>
-                <td>{{$pedido->valor_total}}</td>
+                <td>{{$pedido->usuarios->nombre}}</td>
                 <td>{{$pedido->cantidad}}</td>
                 <td><img src=" img/{{ $pedido->productos->imagen }}" alt="" width="100"></td>
-                <td>
+                <td>{{$pedido->valor_total}}</td>
+                <td class="text-center">
                     <a href="" class="btn btn-danger">eliminar</a>
                     <a href="" class="btn btn-info">modificar</a>
                 </td>

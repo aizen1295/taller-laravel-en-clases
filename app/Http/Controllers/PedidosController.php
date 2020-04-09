@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
+use App\Models\Producto;
+use App\Models\Usuario;
 
 class PedidosController extends Controller
 {
@@ -15,8 +18,7 @@ class PedidosController extends Controller
     public function index()
     {
         $pedidos = pedido::all();
-        return view ('pedidos.index', compact ('pedidos'));
-        
+        return view('pedidos.index', compact('pedidos'));
     }
 
     /**
@@ -26,7 +28,10 @@ class PedidosController extends Controller
      */
     public function create()
     {
-        //
+        $productos = producto::all();
+        $usuarios = Usuario::all();
+        return view('pedidos.crear', compact('productos', 'usuarios'));
+        /*  return dd($usuarios, $produactos); */
     }
 
     /**
@@ -37,7 +42,14 @@ class PedidosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /* pedido::create([
+            'porducto_id' => $request->input('porducto_id'),
+            'usuario_id' => $request->input('usuario_id'),
+            'cantidad' => $request->input('cantidad'),
+
+        ]); */
+        return Redirect('pedidos');
+        /* return dd($request); */
     }
 
     /**

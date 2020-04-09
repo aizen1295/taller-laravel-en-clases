@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ProductosController extends Controller
 {
@@ -16,8 +17,7 @@ class ProductosController extends Controller
     {
         $productos = producto::all();
 
-        /* return view ('productos.index', compact ('productos')); */
-        dd($productos);
+        return view('productos.index', compact('productos'));
     }
 
     /**
@@ -40,12 +40,12 @@ class ProductosController extends Controller
     public function store(Request $request)
     {
         producto::create([
-            'nombre' => 'nombre',
-            'valor' => 'valor',
-            'codigo' => 'codigo',
-            'imagen' => 'imagen'
+            'nombre' => $request->input('nombre'),
+            'valor' => $request->input('valor'),
+            'codigo' => $request->input('codigo'),
+            'imagen' => $request->input('imagen')
         ]);
-        return dd($request);
+        return Redirect('productos');
     }
 
     /**

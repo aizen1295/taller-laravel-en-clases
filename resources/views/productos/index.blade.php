@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="container">
+    <a class="btn btn-primary" href="{{route('productos.create')}}" role="button">agregar</a>
 
     <table class="table table-striped table-border">
         <thead>

@@ -11,13 +11,14 @@
                 <div class="form-group">
                     <label for="exampleFormControlInput1">productos</label>
                     <div class="form-group">
-                        <select class="form-control select2" name="producto_id">
+                        <select class="form-control " name="producto_id" id="producto_id">
                             @foreach ($productos as $producto)
                             <option value="{{$producto->id}}">{{$producto->nombre}}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
+
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1">usuarios</label>
@@ -30,13 +31,21 @@
                     </div>
                 </div>
 
-
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">valor unitario</label>
+                    <input type="text" class="form-control" id="valor" name="valor">
+                </div>
 
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1">cantidad</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1"
-                        placeholder="Ingrese la cantidad" name="cantidad">
+                    <input type="text" class="form-control" id="cantidad" placeholder="Ingrese la cantidad"
+                        name="cantidad">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">valor total</label>
+                    <input type="text" class="form-control" id="valor_total" name="valor_total">
                 </div>
 
                 <button type="submit" class="btn btn-success btn-lg btn-block">Enviar</button>
@@ -46,5 +55,23 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(function () {
+
+        /* $("#producto_id").change(function(){
+            var valors = document.getElementById('producto_id').value;
+            document.getElementById('valorr').value=valors;
+        }); */
+
+        $("#cantidad").change(function(){
+            var valor = document.getElementById('valor').value;
+            var cantidad = document.getElementById('cantidad').value;
+            var valor_total = valor * cantidad;
+            document.getElementById('valor_total').value=valor_total;
+        });
+    });
+    
+</script>
 
 @endsection

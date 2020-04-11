@@ -4,7 +4,7 @@
 
 <div class="container">
 
-    <a class="btn btn-primary" href="{{route('usuarios.create')}}" role="button">agregar</a>
+    <a class="btn btn-success" href="{{route('usuarios.create')}}" role="button">agregar</a>
 
     <table class="table table-striped table-border">
         <thead>

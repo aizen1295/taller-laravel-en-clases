@@ -28,10 +28,10 @@ class PedidosController extends Controller
      */
     public function create()
     {
-        $productos = producto::all();
+        $productos = producto::all('id', 'nombre', 'valor');
         $usuarios = Usuario::all();
         return view('pedidos.crear', compact('productos', 'usuarios'));
-        /*  return dd($usuarios, $produactos); */
+        /* return dd($usuarios, $productos); */
     }
 
     /**
@@ -42,14 +42,9 @@ class PedidosController extends Controller
      */
     public function store(Request $request)
     {
-        /* pedido::create([
-            'porducto_id' => $request->input('porducto_id'),
-            'usuario_id' => $request->input('usuario_id'),
-            'cantidad' => $request->input('cantidad'),
-
-        ]); */
+        Pedido::create($request->all('producto_id', 'usuario_id', 'cantidad', 'valor_total'));
         return Redirect('pedidos');
-        /* return dd($request); */
+        /* return dd($request->all('producto_id', 'usuario_id', 'cantidad', 'valor_total')); */
     }
 
     /**

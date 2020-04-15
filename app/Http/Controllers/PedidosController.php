@@ -55,7 +55,6 @@ class PedidosController extends Controller
      */
     public function show(Pedidos $pedidos)
     {
-        //
     }
 
     /**

@@ -45,7 +45,7 @@
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1">valor total</label>
-                    <input type="text" class="form-control" id="valor_total" name="valor_total">
+                    <input readonly="" type="text" class="form-control" id="valor_total" name="valor_total">
                 </div>
 
                 <button type="submit" class="btn btn-success btn-lg btn-block">Enviar</button>
@@ -59,10 +59,14 @@
 <script>
     $(function () {
 
-        /* $("#producto_id").change(function(){
+        $("#producto_id").change(function(){
             var valors = document.getElementById('producto_id').value;
-            document.getElementById('valorr').value=valors;
-        }); */
+            $.ajax ({
+                type:post;
+                data:"id_producto" = valors;
+                URL:{{ url('pedidos.show') }};
+            });
+        });
 
         $("#cantidad").change(function(){
             var valor = document.getElementById('valor').value;

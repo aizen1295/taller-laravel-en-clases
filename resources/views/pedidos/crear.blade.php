@@ -56,26 +56,5 @@
     </div>
 </div>
 
-<script>
-    $(function () {
-
-        $("#producto_id").change(function(){
-            var valors = document.getElementById('producto_id').value;
-            $.ajax ({
-                type:post;
-                data:"id_producto" = valors;
-                URL:{{ url('pedidos.show') }};
-            });
-        });
-
-        $("#cantidad").change(function(){
-            var valor = document.getElementById('valor').value;
-            var cantidad = document.getElementById('cantidad').value;
-            var valor_total = valor * cantidad;
-            document.getElementById('valor_total').value=valor_total;
-        });
-    });
-    
-</script>
 
 @endsection

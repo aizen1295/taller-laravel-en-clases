@@ -6,7 +6,7 @@
 		<div class="col-12 col-xd-4 col-md-4 col-lg-4">
 		</div>
 		<div class="col-12 col-xd-4 col-md-4 col-lg-4">
-			<form method="post" action="{{route('productos.store')}}">
+			<form method="post" action="{{route('productos.store')}}" enctype="multipart/form-data">
 				@csrf
 				<div class="form-group">
 					<label for="exampleFormControlInput1">nombre producto</label>

@@ -7,6 +7,7 @@ use App\Models\Pedido;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Usuario;
+use Illuminate\Support\Facades\Redirect;
 
 class PedidosController extends Controller
 {
@@ -42,7 +43,7 @@ class PedidosController extends Controller
      */
     public function store(Request $request)
     {
-        Pedido::create($request->all('producto_id', 'usuario_id', 'cantidad', 'valor_total'));
+        $pedidos = Pedido::create($request->all('producto_id', 'usuario_id', 'cantidad', 'valor_total'));
         return Redirect('pedidos');
         /* return dd($request->all('producto_id', 'usuario_id', 'cantidad', 'valor_total')); */
     }
@@ -89,5 +90,11 @@ class PedidosController extends Controller
     public function destroy(Pedidos $pedidos)
     {
         //
+    }
+
+    public function valorproducto($id)
+    {
+        $valor = Producto::where('id', [$id])->get();
+        return dd($valor);
     }
 }

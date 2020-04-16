@@ -39,12 +39,18 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        producto::create([
-            'nombre' => $request->input('nombre'),
-            'valor' => $request->input('valor'),
-            'codigo' => $request->input('codigo'),
-            'imagen' => $request->input('imagen')
-        ]);
+        $nombre = "Sin imagen";
+        //Para poder enviar imagenes debe agregar enctype="multipart/form-data" al formulario
+        if ($request->hasFile('imagen')) {
+            //convierte el archivo para guardarlo en la carpeta publica
+            $file = $request->file('imagen');
+            $nombre = $request->input('cod') . $file->getClientOriginalName();
+            $file->move(public_path() . '/img/', $nombre);
+        }
+        $producto = producto::create($request->all());
+        $producto->imagen = $nombre;
+        $producto->save();
+        /* return dd($nombre); */
         return Redirect('productos');
     }
 

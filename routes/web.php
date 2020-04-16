@@ -25,6 +25,7 @@ route::resource('productos', 'ProductosController');
 route::resource('usuarios', 'UsuariosController');
 route::resource('pedidos', 'PedidosController');
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

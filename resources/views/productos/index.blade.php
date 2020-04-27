@@ -25,8 +25,10 @@
                 <td>{{$producto->codigo}}</td>
                 <td><img src=" img/{{ $producto->imagen }}" alt="" width="100"></td>
                 <td>
-                    <a href="" class="btn btn-danger">eliminar</a>
-                    <a href="" class="btn btn-info">modificar</a>
+                    <a href="{{route('productos.edit',$producto->id)}}" class="btn btn-info">editar</a>
+                    {!! Form::open(['route'=>['productos.destroy',$producto->id], 'method'=>'DELETE']) !!}
+                    {!! Form::submit('eliminar', ['class'=>'btn btn-danger']) !!}
+                    {!! Form::close() !!}
                 </td>
             </tr>
             @endforeach

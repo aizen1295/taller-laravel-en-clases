@@ -33,7 +33,7 @@
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1">valor unitario</label>
-                    <input type="text" class="form-control" id="valor" name="valor">
+                    <input readonly="" type="text" class="form-control" id="valor" name="valor">
                 </div>
 
 
@@ -55,6 +55,5 @@
         </div>
     </div>
 </div>
-
 
 @endsection

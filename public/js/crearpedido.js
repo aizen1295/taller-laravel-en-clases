@@ -13,5 +13,9 @@ $(function() {
 
 function valor() {
     var id_producto = $(this).val();
-    $.get(`/api/valor/${id_producto}`);
+    $.get(`/api/valor/${id_producto}`, res => {
+        var producto = JSON.parse(res);
+
+        $("#valor").val(producto.valor);
+    });
 }

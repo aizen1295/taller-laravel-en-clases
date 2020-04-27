@@ -95,6 +95,6 @@ class PedidosController extends Controller
     public function valorproducto($id)
     {
         $valor = Producto::where('id', [$id])->get();
-        return dd($valor);
+        return json_encode($valor[0]);
     }
 }

@@ -39,18 +39,17 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        $nombre = "Sin imagen";
-        //Para poder enviar imagenes debe agregar enctype="multipart/form-data" al formulario
+
         if ($request->hasFile('imagen')) {
             //convierte el archivo para guardarlo en la carpeta publica
             $file = $request->file('imagen');
-            $nombre = $request->input('cod') . $file->getClientOriginalName();
+            $nombre = time() . $file->getClientOriginalName();
             $file->move(public_path() . '/img/', $nombre);
         }
         $producto = producto::create($request->all());
         $producto->imagen = $nombre;
         $producto->save();
-        /* return dd($nombre); */
+        /*  return dd($request); */
         return Redirect('productos');
     }
 
@@ -60,7 +59,7 @@ class ProductosController extends Controller
      * @param  \App\Productos  $productos
      * @return \Illuminate\Http\Response
      */
-    public function show(Productos $productos)
+    public function show(Producto $producto)
     {
         //
     }
@@ -71,9 +70,11 @@ class ProductosController extends Controller
      * @param  \App\Productos  $productos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Productos $productos)
+    public function edit($id)
     {
-        //
+        $producto = Producto::findOrFail($id);
+        return view('productos.actualizar', compact('producto'));
+        /* return $producto; */
     }
 
     /**
@@ -83,9 +84,19 @@ class ProductosController extends Controller
      * @param  \App\Productos  $productos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Productos $productos)
+    public function update(Request $request, Producto $producto)
     {
-        //
+        $producto->fill($request->except('imagen'));
+        if ($request->hasFile('imagen')) {
+            //convierte el archivo para guardarlo en la carpeta publica
+            $file = $request->file('imagen');
+            $nombre = time() . $file->getClientOriginalName();
+            $producto->imagen = $nombre;
+            $file->move(public_path() . '/img/', $nombre);
+        }
+        $producto->save();
+        /* return dd($request); */
+        return Redirect('productos');
     }
 
     /**
@@ -94,8 +105,11 @@ class ProductosController extends Controller
      * @param  \App\Productos  $productos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Productos $productos)
+    public function destroy(Producto $producto)
     {
-        //
+        $imagen = public_path() . '/img/' . $producto->imagen;
+        unlink($imagen);
+        $producto->delete();
+        return Redirect('productos');
     }
 }

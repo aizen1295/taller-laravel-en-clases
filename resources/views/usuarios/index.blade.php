@@ -25,8 +25,10 @@
                 <td>{{$usuario->contra}}</td>
 
                 <td>
-                    <a href="" class="btn btn-danger">eliminar</a>
-                    <a href="" class="btn btn-info">modificar</a>
+                    {!! Form::open(['route'=>['usuarios.destroy',$usuario->id], 'method'=>'DELETE']) !!}
+                    {!! Form::submit('eliminar', ['class'=>'btn btn-danger']) !!}
+                    {!! Form::close() !!}
+                    <a href="{{route('usuarios.edit',$usuario->id)}}" class="btn btn-info">editar</a>
                 </td>
             </tr>
             @endforeach

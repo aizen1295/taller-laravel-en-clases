@@ -12,7 +12,6 @@
                 {!! Form::submit('actualizar', ['class'=>'btn btn-info btn-lg btn-block']) !!}
             </div>
             {!! Form::close() !!}
-
         </div>
         <div class="col-12 col-xd-4 col-md-4 col-lg-4">
         </div>

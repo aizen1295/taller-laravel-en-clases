@@ -50,7 +50,7 @@ class UsuariosController extends Controller
      * @param  \App\Usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function show(Usuarios $usuarios)
+    public function show(Usuario $usuario)
     {
         //
     }
@@ -61,9 +61,11 @@ class UsuariosController extends Controller
      * @param  \App\Usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function edit(Usuarios $usuarios)
+    public function edit($id)
     {
-        //
+        $usuario = usuario::findOrFail($id);
+        /* return ($usuario); */
+        return view('usuarios.actualizar', compact('usuario'));
     }
 
     /**
@@ -73,9 +75,11 @@ class UsuariosController extends Controller
      * @param  \App\Usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usuarios $usuarios)
+    public function update(Request $request, $id)
     {
-        //
+        $usuario = $request->except('_method', '_token');
+        Usuario::Wherekey($id)->update($usuario);
+        return Redirect('usuarios');
     }
 
     /**
@@ -84,8 +88,9 @@ class UsuariosController extends Controller
      * @param  \App\Usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuarios $usuarios)
+    public function destroy(Usuario $usuario)
     {
-        //
+        $usuario->delete();
+        return Redirect('usuarios');
     }
 }

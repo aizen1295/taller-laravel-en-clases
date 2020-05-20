@@ -54,7 +54,7 @@ class PedidosController extends Controller
      * @param  \App\Pedidos  $pedidos
      * @return \Illuminate\Http\Response
      */
-    public function show(Pedidos $pedidos)
+    public function show(Pedido $pedido)
     {
     }
 
@@ -64,7 +64,7 @@ class PedidosController extends Controller
      * @param  \App\Pedidos  $pedidos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pedidos $pedidos)
+    public function edit(Pedido $pedido)
     {
         //
     }
@@ -76,7 +76,7 @@ class PedidosController extends Controller
      * @param  \App\Pedidos  $pedidos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pedidos $pedidos)
+    public function update(Request $request, Pedido $pedido)
     {
         //
     }
@@ -87,9 +87,10 @@ class PedidosController extends Controller
      * @param  \App\Pedidos  $pedidos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pedidos $pedidos)
+    public function destroy(Pedido $pedido)
     {
-        //
+        $pedido->delete();
+        return Redirect('pedidos');
     }
 
     public function valorproducto($id)

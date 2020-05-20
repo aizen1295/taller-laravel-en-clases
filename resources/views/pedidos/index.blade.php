@@ -29,8 +29,10 @@
                 <td><img src=" img/{{ $pedido->productos->imagen }}" alt="" width="100"></td>
                 <td>{{$pedido->valor_total}}</td>
                 <td class="text-center">
-                    <a href="" class="btn btn-danger">eliminar</a>
-                    <a href="" class="btn btn-info">modificar</a>
+                    {!! Form::open(['route'=>['pedidos.destroy',$pedido->id], 'method'=>'DELETE']) !!}
+                    {!! Form::submit('eliminar', ['class'=>'btn btn-danger']) !!}
+                    {!! Form::close() !!}
+                    <a href="{{route('pedidos.edit',$pedido->id)}}" class="btn btn-info">editar</a>
                 </td>
             </tr>
             @endforeach

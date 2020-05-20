@@ -64,9 +64,13 @@ class PedidosController extends Controller
      * @param  \App\Pedidos  $pedidos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pedido $pedido)
+    public function edit($id)
     {
-        //
+        $pedido = pedido::findOrFail($id);
+        $productos = producto::all('id', 'nombre', 'valor');
+        $usuarios = Usuario::all();
+        /* return ($pedido); */
+        return view('pedidos.actualizar', compact('pedido', 'productos', 'usuarios'));
     }
 
     /**
@@ -76,9 +80,11 @@ class PedidosController extends Controller
      * @param  \App\Pedidos  $pedidos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pedido $pedido)
+    public function update(Request $request, $id)
     {
-        //
+        $pedido = $request->except('_method', '_token', 'valor');
+        pedido::Wherekey($id)->update($pedido);
+        return Redirect('pedidos');
     }
 
     /**

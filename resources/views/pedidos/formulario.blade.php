@@ -21,19 +21,18 @@
 </div>
 
 <div class="form-group">
-    <label for="exampleFormControlInput1">valor unitario</label>
-    <input readonly="" type="text" class="form-control" id="valor" name="valor">
-</div>
-
-
-<div class="form-group">
-    <label for="exampleFormControlInput1">cantidad</label>
-    <input type="text" class="form-control" id="cantidad" placeholder="Ingrese la cantidad" name="cantidad">
+    {!! Form::label('valor unitario', 'valor unitario') !!}
+    {!! Form::text('valor', NULL , ['class'=>'form-control', 'id'=>'valor', 'readonly'=>'' ]) !!}
 </div>
 
 <div class="form-group">
-    <label for="exampleFormControlInput1">valor total</label>
-    <input readonly="" type="text" class="form-control" id="valor_total" name="valor_total">
+    {!! Form::label('cantidad', 'cantidad') !!}
+    {!! Form::text('cantidad', NULL , ['class'=>'form-control', 'id'=>'cantidad' ]) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::label('valor_total', 'valor total') !!}
+    {!! Form::text('valor_total', NULL , ['class'=>'form-control', 'id'=>'valor_total']) !!}
 </div>
 
 <div class="form-group">
